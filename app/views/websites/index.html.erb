@@ -8,13 +8,15 @@
 <% end %>
 </p>
 <p>
-<% if params[:search].blank? %>
-<% else %>
+<% if !params[:search].blank? %>
 <p><a href="/">Clear results</a></p>
 <% end %>
 </p>
 <table border="1" cellpadding="5" cellspacing="0">
 	<tr><th>URL</th><th>Last checked</th><th>Has GTM?</th><th>Actions</th></tr>
+<% if params[:search].blank? %>
+<%= will_paginate @websites %> 
+<% end %>
 <% @websites.each do |website| %>
     <tr>
       <td><%= website.url %></td>
@@ -25,6 +27,9 @@
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
+<% if params[:search].blank? %>
+<%= will_paginate @websites %> 
+<% end %>
 </table>
 
 

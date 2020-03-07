@@ -10,8 +10,8 @@ class ImportsController < ApplicationController
 		CSV.foreach(params[:import][:file], headers: true) do |row|
 			items << row.to_h
 		end
-		Website.import items, validate_uniqueness: true
-     	flash[:notice] = 'Items were imported successfully'
+		import_info = Website.import items, validate_uniqueness: true
+     	flash[:notice] = "#{import_info.num_inserts} items were imported successfully, #{import_info.failed_instances.count} failed"
      	redirect_to websites_path
 	end
   

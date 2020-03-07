@@ -16,7 +16,7 @@ class WebsitesController < ApplicationController
 
   def index
   	if params[:search].blank?
-  		@websites = Website.all
+      @websites  = Website.paginate(:page => params[:page], :per_page=>20)
   	else
   		@parameter = params[:search].downcase 
   		@websites = Website.all.where("lower(url) LIKE :search", search: "%#{@parameter}%") 
