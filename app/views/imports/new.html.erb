@@ -1,0 +1,9 @@
+<h1>Import CSV with URLs</h1>
+
+<%= form_with scope: :import, url: imports_path, local: true, :multipart => true do |f| %>
+   <div class="form-group">
+      <%= f.label :file, "Upload CSV File" %>
+      <%= f.file_field :file, class: 'form-control-file', required: true %>
+   </div>
+   <%= f.button :submit%>
+<% end %>

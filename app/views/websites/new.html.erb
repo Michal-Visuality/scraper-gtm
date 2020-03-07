@@ -1,0 +1,11 @@
+
+<%= form_with scope: :website, url: websites_path, local: true do |form| %>
+  <p>
+    <%= form.label :url %><br>
+    <%= form.text_field :url %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyString
+  last_checked: 2020-03-07
+  has_gtm: false
+
+two:
+  url: MyString
+  last_checked: 2020-03-07
+  has_gtm: false

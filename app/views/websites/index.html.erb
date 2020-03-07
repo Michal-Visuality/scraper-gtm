@@ -1,0 +1,30 @@
+<%= flash[:notice] %>
+<h1>Websites index</h1>
+<p><%= link_to 'New single website', new_website_path %></p>
+<p><%= link_to 'Import CSV', new_import_path %></p>
+<p><%= form_tag('/', :method => "get") do %>  
+    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>  
+      <%= button_tag "SEARCH",:name => nil%>  
+<% end %>
+</p>
+<p>
+<% if params[:search].blank? %>
+<% else %>
+<p><a href="/">Clear results</a></p>
+<% end %>
+</p>
+<table border="1" cellpadding="5" cellspacing="0">
+	<tr><th>URL</th><th>Last checked</th><th>Has GTM?</th><th>Actions</th></tr>
+<% @websites.each do |website| %>
+    <tr>
+      <td><%= website.url %></td>
+      <td><%= website.last_checked %></td>
+      <td><%= website.has_gtm %></td>
+      <td><%= link_to 'Destroy', website_path(website),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+
