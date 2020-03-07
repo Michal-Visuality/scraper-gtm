@@ -8,7 +8,7 @@ class ImportsController < ApplicationController
 	def create
 		items = []
 		CSV.foreach(params[:import][:file], headers: true) do |row|
-			items << row
+			items << row.to_h
 		end
 		Website.import(items)
      	flash[:notice] = items
