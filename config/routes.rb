@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   get '/search' => 'websites#search'
 
   root 'websites#index'
+
+  require 'sidekiq/web'
+	mount Sidekiq::Web => '/sidekiq'
 end

@@ -21,6 +21,7 @@ class WebsitesController < ApplicationController
   		@parameter = params[:search].downcase 
   		@websites = Website.all.where("lower(url) LIKE :search", search: "%#{@parameter}%") 
   	end
+    GtmWorker.perform_async()
   end
 
   def destroy
@@ -32,7 +33,7 @@ class WebsitesController < ApplicationController
 
   private
     def website_params
-      params.require(:website).permit(:url)
+      params.require(:website).permit(:url, :has_gtm, :last_checked)
     end
 
 end
