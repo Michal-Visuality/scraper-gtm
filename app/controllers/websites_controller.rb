@@ -8,9 +8,9 @@ class WebsitesController < ApplicationController
     @website = Website.new(website_params)
  
     if @website.save
-      redirect_to @website
+      redirect_to websites_path
     else
-      render 'index'
+      redirect_to websites_path
     end
   end
 
