@@ -21,7 +21,13 @@
     <tr>
       <td><%= website.url %></td>
       <td><%= website.last_checked %></td>
-      <td><%= website.has_gtm ? "yes" : "no" %></td>
+      <td>
+      <% if website.last_checked? %>
+        <%= website.has_gtm ? "yes" : "no" %>
+      <% else %>
+        Not checked
+      <% end %>
+      </td>
       <td><%= link_to 'Destroy', website_path(website),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
