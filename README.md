@@ -1,24 +1,6 @@
 # README
+This is a simple projects that allows to scrape multiple sites to see if GTM tag is installed.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+It uses sidekiq and redis to manage scraping asynchronously.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+For any comments please just write what's on your mind, but remember, I'm not a programmer and all this was done just with some google-based knowledge:) So any improvements are more than welcome;)
