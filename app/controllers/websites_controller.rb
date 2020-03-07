@@ -9,8 +9,10 @@ class WebsitesController < ApplicationController
  
     if @website.save
       redirect_to websites_path
+      flash[:notice] = "Website has been added"
     else
       redirect_to websites_path
+      flash[:notice] = "Website has not been added"
     end
   end
 
